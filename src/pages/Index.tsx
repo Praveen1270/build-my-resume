@@ -1,9 +1,13 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, FileText, Download, Edit } from "lucide-react";
+import { ArrowRight, FileText, Download, Edit, Plus, Minus } from "lucide-react";
+import { useState } from "react";
 
 const Index = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const handleGetStarted = () => {
     // This will be implemented later with payment integration
     console.log("Get started clicked");
@@ -14,6 +18,45 @@ const Index = () => {
     document.getElementById('sample-resume')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Do I need to create an account?",
+      answer: "Yes. You must create an account before making a payment and starting your resume."
+    },
+    {
+      question: "When do I pay?",
+      answer: "You need to pay ₹50 before you can create and download your resume."
+    },
+    {
+      question: "Can I get a refund?",
+      answer: "No. All payments are final. We do not offer refunds, so please proceed only if you're sure."
+    },
+    {
+      question: "What if I face technical issues?",
+      answer: "Reach out to our support team. We'll help you solve any technical problems quickly."
+    },
+    {
+      question: "How quickly can I download my resume?",
+      answer: "Immediately after payment and filling in your details. The entire process takes less than 5 minutes."
+    },
+    {
+      question: "Is the resume format ATS-friendly?",
+      answer: "Yes, our template is specifically designed to pass Applicant Tracking Systems (ATS) used by most companies."
+    },
+    {
+      question: "What payment methods do you accept?",
+      answer: "We accept all major credit/debit cards, UPI, net banking, and digital wallets through our secure payment gateway."
+    },
+    {
+      question: "Do I pay ₹50 once for unlimited resumes?",
+      answer: "No, you pay ₹50 for each individual resume you create and download. Each payment gives you one resume."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -21,7 +64,7 @@ const Index = () => {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/ed398060-ef81-4c8c-85a3-510181b0bf1a.png" 
+              src="/lovable-uploads/57519401-8dfd-48c4-abf1-26304a6c050d.png" 
               alt="ResumeBuilder Logo" 
               className="h-8 w-8"
             />
@@ -321,50 +364,27 @@ const Index = () => {
             Frequently Asked Questions
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Do I need to create an account?</h3>
-                <p className="text-muted-foreground">Yes. You must create an account before making a payment and starting your resume.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-2">When do I pay?</h3>
-                <p className="text-muted-foreground">You need to pay ₹50 before you can create and download your resume.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Can I get a refund?</h3>
-                <p className="text-muted-foreground">No. All payments are final. We do not offer refunds, so please proceed only if you're sure.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-2">What if I face technical issues?</h3>
-                <p className="text-muted-foreground">Reach out to our support team. We'll help you solve any technical problems quickly.</p>
-              </div>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">How quickly can I download my resume?</h3>
-                <p className="text-muted-foreground">Immediately after payment and filling in your details. The entire process takes less than 5 minutes.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Is the resume format ATS-friendly?</h3>
-                <p className="text-muted-foreground">Yes, our template is specifically designed to pass Applicant Tracking Systems (ATS) used by most companies.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-2">What payment methods do you accept?</h3>
-                <p className="text-muted-foreground">We accept all major credit/debit cards, UPI, net banking, and digital wallets through our secure payment gateway.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Do I pay ₹50 once for unlimited resumes?</h3>
-                <p className="text-muted-foreground">No, you pay ₹50 for each individual resume you create and download. Each payment gives you one resume.</p>
-              </div>
-            </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="border border-border">
+                <div 
+                  className="p-6 cursor-pointer flex items-center justify-between hover:bg-muted/50 transition-colors"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <h3 className="text-lg font-semibold">{faq.question}</h3>
+                  {openFaq === index ? (
+                    <Minus className="h-5 w-5 text-muted-foreground" />
+                  ) : (
+                    <Plus className="h-5 w-5 text-muted-foreground" />
+                  )}
+                </div>
+                {openFaq === index && (
+                  <div className="px-6 pb-6">
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </div>
+                )}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -374,7 +394,7 @@ const Index = () => {
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <img 
-              src="/lovable-uploads/ed398060-ef81-4c8c-85a3-510181b0bf1a.png" 
+              src="/lovable-uploads/57519401-8dfd-48c4-abf1-26304a6c050d.png" 
               alt="ResumeBuilder Logo" 
               className="h-8 w-8"
             />
