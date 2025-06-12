@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,9 +20,11 @@ const Index = () => {
       <header className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-lg bg-emerald-500 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">R</span>
-            </div>
+            <img 
+              src="/lovable-uploads/ed398060-ef81-4c8c-85a3-510181b0bf1a.png" 
+              alt="ResumeBuilder Logo" 
+              className="h-8 w-8"
+            />
             <span className="font-bold text-xl">ResumeBuilder</span>
           </div>
           <nav className="hidden md:flex items-center space-x-6">
@@ -323,15 +324,27 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-semibold mb-2">Do I pay ₹50 once for unlimited resumes?</h3>
-                <p className="text-muted-foreground">No, you pay ₹50 for each individual resume you create and download. Each payment gives you one resume.</p>
+                <h3 className="text-lg font-semibold mb-2">Do I need to create an account?</h3>
+                <p className="text-muted-foreground">Yes. You must create an account before making a payment and starting your resume.</p>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold mb-2">When do I pay?</h3>
+                <p className="text-muted-foreground">You need to pay ₹50 before you can create and download your resume.</p>
               </div>
               
               <div>
                 <h3 className="text-lg font-semibold mb-2">Can I get a refund?</h3>
-                <p className="text-muted-foreground">No, all sales are final. We have a strict no-refund policy. Please review our sample resume before making a purchase.</p>
+                <p className="text-muted-foreground">No. All payments are final. We do not offer refunds, so please proceed only if you're sure.</p>
               </div>
               
+              <div>
+                <h3 className="text-lg font-semibold mb-2">What if I face technical issues?</h3>
+                <p className="text-muted-foreground">Reach out to our support team. We'll help you solve any technical problems quickly.</p>
+              </div>
+            </div>
+            
+            <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold mb-2">How quickly can I download my resume?</h3>
                 <p className="text-muted-foreground">Immediately after payment and filling in your details. The entire process takes less than 5 minutes.</p>
@@ -341,13 +354,6 @@ const Index = () => {
                 <h3 className="text-lg font-semibold mb-2">Is the resume format ATS-friendly?</h3>
                 <p className="text-muted-foreground">Yes, our template is specifically designed to pass Applicant Tracking Systems (ATS) used by most companies.</p>
               </div>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Can I edit my resume after payment?</h3>
-                <p className="text-muted-foreground">You can edit and preview your resume before the final download. Once downloaded, you'll need to pay ₹50 for any new version.</p>
-              </div>
               
               <div>
                 <h3 className="text-lg font-semibold mb-2">What payment methods do you accept?</h3>
@@ -355,13 +361,8 @@ const Index = () => {
               </div>
               
               <div>
-                <h3 className="text-lg font-semibold mb-2">Do I need to create an account?</h3>
-                <p className="text-muted-foreground">No, you can create and download your resume without creating an account. Just pay and build instantly.</p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-2">What if I have technical issues?</h3>
-                <p className="text-muted-foreground">Contact our support team immediately. We'll help resolve technical issues, but remember our no-refund policy still applies.</p>
+                <h3 className="text-lg font-semibold mb-2">Do I pay ₹50 once for unlimited resumes?</h3>
+                <p className="text-muted-foreground">No, you pay ₹50 for each individual resume you create and download. Each payment gives you one resume.</p>
               </div>
             </div>
           </div>
@@ -372,9 +373,11 @@ const Index = () => {
       <footer className="border-t border-border/40 py-12 px-4">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="h-8 w-8 rounded-lg bg-emerald-500 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">R</span>
-            </div>
+            <img 
+              src="/lovable-uploads/ed398060-ef81-4c8c-85a3-510181b0bf1a.png" 
+              alt="ResumeBuilder Logo" 
+              className="h-8 w-8"
+            />
             <span className="font-bold text-xl">ResumeBuilder</span>
           </div>
           <p className="text-muted-foreground mb-2">
