@@ -1,411 +1,320 @@
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, FileText, Download, Edit, Plus, Minus } from "lucide-react";
-import { useState } from "react";
 
 const Index = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const handleGetStarted = () => {
-    // This will be implemented later with payment integration
-    console.log("Get started clicked");
-  };
-
-  const handleViewSample = () => {
-    // Scroll to sample section
-    document.getElementById('sample-resume')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const faqs = [
-    {
-      question: "Do I need to create an account?",
-      answer: "Yes. You must create an account before making a payment and starting your resume."
-    },
-    {
-      question: "When do I pay?",
-      answer: "You need to pay ₹50 before you can create and download your resume."
-    },
-    {
-      question: "Can I get a refund?",
-      answer: "No. All payments are final. We do not offer refunds, so please proceed only if you're sure."
-    },
-    {
-      question: "What if I face technical issues?",
-      answer: "Reach out to our support team. We'll help you solve any technical problems quickly."
-    },
-    {
-      question: "How quickly can I download my resume?",
-      answer: "Immediately after payment and filling in your details. The entire process takes less than 5 minutes."
-    },
-    {
-      question: "Is the resume format ATS-friendly?",
-      answer: "Yes, our template is specifically designed to pass Applicant Tracking Systems (ATS) used by most companies."
-    },
-    {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit/debit cards, UPI, net banking, and digital wallets through our secure payment gateway."
-    },
-    {
-      question: "Do I pay ₹50 once for unlimited resumes?",
-      answer: "No, you pay ₹50 for each individual resume you create and download. Each payment gives you one resume."
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
-      <header className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/57519401-8dfd-48c4-abf1-26304a6c050d.png" 
-              alt="ResumeBuilder Logo" 
-              className="h-8 w-8"
-            />
-            <span className="font-bold text-xl">ResumeBuilder</span>
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center">
+              <img 
+                src="/lovable-uploads/57519401-8dfd-48c4-abf1-26304a6c050d.png" 
+                alt="BuildMyCV Logo" 
+                className="w-10 h-10 mr-3"
+              />
+              <span className="text-2xl font-bold text-gray-900">BuildMyCV</span>
+            </div>
+            <nav className="hidden md:flex space-x-8">
+              <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
+              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900">How It Works</a>
+              <a href="#testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
+              <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
+              <a href="#faq" className="text-gray-600 hover:text-gray-900">FAQ</a>
+            </nav>
+            <div className="flex space-x-4">
+              <Button variant="ghost" asChild>
+                <a href="/auth">Login</a>
+              </Button>
+              <Button asChild>
+                <a href="/auth">Get Started</a>
+              </Button>
+            </div>
           </div>
-          <nav className="hidden md:flex items-center space-x-6">
-            <a href="#sample-resume" className="text-muted-foreground hover:text-foreground transition-colors">
-              Sample
-            </a>
-            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
-              Pricing
-            </a>
-            <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">
-              FAQ
-            </a>
-            <Button variant="outline" size="sm">
-              Login
-            </Button>
-          </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center max-w-4xl">
-          <Badge className="mb-6 bg-emerald-50 text-emerald-700 hover:bg-emerald-100">
-            🚀 Create professional resumes instantly
-          </Badge>
-          
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Build your perfect resume for just{" "}
-            <span className="text-emerald-600">₹50 each</span>
-          </h1>
-          
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Pay ₹50, create one professional resume, download instantly. No subscriptions, no hidden fees.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3"
-              onClick={handleGetStarted}
-            >
-              Create Resume - ₹50
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="lg" className="px-8 py-3" onClick={handleViewSample}>
-              View Sample Resume
-            </Button>
-          </div>
-
-          {/* Feature Highlights */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center space-x-3 p-4 rounded-lg bg-muted/50">
-              <div className="h-6 w-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xs">✓</span>
-              </div>
-              <span className="text-sm font-medium">No design skills needed</span>
-            </div>
-            <div className="flex items-center space-x-3 p-4 rounded-lg bg-muted/50">
-              <div className="h-6 w-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xs">✓</span>
-              </div>
-              <span className="text-sm font-medium">ATS-friendly format</span>
-            </div>
-            <div className="flex items-center space-x-3 p-4 rounded-lg bg-muted/50">
-              <div className="h-6 w-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-white text-xs">✓</span>
-              </div>
-              <span className="text-sm font-medium">Instant PDF download</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Resume Section */}
-      <section className="py-20 px-4 bg-muted/30" id="sample-resume">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            See what your resume will look like
-          </h2>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Resume Preview */}
-            <div className="bg-white p-8 rounded-lg shadow-lg border">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">Ashish Pratap Singh</h3>
-                <div className="text-sm text-gray-600 mt-2">
-                  <span>📧 xxx@gmail.com</span> | <span>📱 XXX-XXX-XXX</span>
-                </div>
-                <div className="text-sm text-gray-600">
-                  <span>🔗 github.com/ashishps1</span> | <span>💼 linkedin.com/in/ashishps1</span>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-bold text-gray-900 border-b border-gray-300 pb-1 mb-3">Skills</h4>
-                  <div className="text-sm text-gray-700">
-                    <p><strong>Languages:</strong> C/C++, Java, Python, JavaScript, TypeScript, SQL</p>
-                    <p><strong>Technologies:</strong> AWS, React, Node.js, Docker, Kubernetes</p>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-gray-900 border-b border-gray-300 pb-1 mb-3">Work Experience</h4>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h5 className="font-semibold text-gray-900">Adobe, Bangalore</h5>
-                          <p className="text-sm text-emerald-600 italic">Computer Scientist</p>
-                        </div>
-                        <span className="text-sm text-gray-600">Mar 2021 - Present</span>
-                      </div>
-                      <ul className="list-disc list-inside text-sm text-gray-700 mt-2 space-y-1">
-                        <li>Led migration of Hive and Presto jobs from Qubole to AWS EMR</li>
-                        <li>Reduced operational costs by 80% through automated reporting</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-gray-900 border-b border-gray-300 pb-1 mb-3">Education</h4>
-                  <div>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h5 className="font-semibold text-gray-900">BITS Hyderabad</h5>
-                        <p className="text-sm text-gray-700">B.E. in Computer Science and Engineering</p>
-                      </div>
-                      <span className="text-sm text-gray-600">Aug 2013 - Jun 2017</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Features */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold mb-6">Professional template designed for success</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <FileText className="h-5 w-5 text-emerald-600 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">ATS-Optimized Format</h4>
-                    <p className="text-muted-foreground text-sm">Designed to pass Applicant Tracking Systems used by most companies</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <Edit className="h-5 w-5 text-emerald-600 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">Easy to Customize</h4>
-                    <p className="text-muted-foreground text-sm">Simply fill in your information and download instantly</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <Download className="h-5 w-5 text-emerald-600 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">Instant PDF Download</h4>
-                    <p className="text-muted-foreground text-sm">Get your professional resume in seconds, ready to send</p>
-                  </div>
-                </div>
-              </div>
-
-              <Button 
-                size="lg" 
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white mt-6"
-                onClick={handleGetStarted}
-              >
-                Create Your Resume Now - ₹50
-                <ArrowRight className="ml-2 h-4 w-4" />
+      <main>
+        {/* Hero Section */}
+        <section className="py-20 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Build Your Perfect Resume in <span className="text-blue-600">Minutes</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Create professional, ATS-friendly resumes that get you noticed. Choose from expertly designed templates and land your dream job.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="text-lg px-8 py-6" asChild>
+                <a href="/auth">Start Building Now</a>
+              </Button>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+                View Templates
               </Button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Comparison Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Why choose our resume builder?
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Traditional Services */}
-            <Card className="p-6 bg-red-50 border-red-200">
-              <h3 className="text-xl font-semibold mb-4 text-red-800">Traditional Resume Services</h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <span className="text-red-500 text-lg">✖</span>
-                  <span className="text-red-700">Pay ₹500–₹1000 per resume</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-red-500 text-lg">✖</span>
-                  <span className="text-red-700">Wait 2-3 days for delivery</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-red-500 text-lg">✖</span>
-                  <span className="text-red-700">Limited revision rounds</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-red-500 text-lg">✖</span>
-                  <span className="text-red-700">No guarantee of ATS compatibility</span>
-                </div>
+        {/* Features Section */}
+        <section id="features" className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              Key Features
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Feature 1 */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Professionally Designed Templates
+                </h3>
+                <p className="text-gray-600">
+                  Choose from a wide variety of modern and creative resume
+                  templates.
+                </p>
               </div>
-            </Card>
-
-            {/* Our Service */}
-            <Card className="p-6 bg-emerald-50 border-emerald-200">
-              <h3 className="text-xl font-semibold mb-4 text-emerald-800">Our Resume Builder</h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span className="text-emerald-700">Just ₹50 per resume</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span className="text-emerald-700">Instant download</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span className="text-emerald-700">Edit before final download</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span className="text-emerald-700">ATS-optimized template</span>
-                </div>
+              {/* Feature 2 */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Easy-to-Use Resume Builder
+                </h3>
+                <p className="text-gray-600">
+                  Our intuitive drag-and-drop interface makes resume creation a
+                  breeze.
+                </p>
               </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-20 px-4 bg-muted/30" id="pricing">
-        <div className="container mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            💸 ₹50 per resume — Pay as you go
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            No subscriptions, no monthly fees. Pay only when you need a resume.
-          </p>
-          
-          <Card className="p-8 mt-8 border-2 border-emerald-200">
-            <div className="text-center">
-              <div className="mb-6">
-                <span className="text-5xl font-bold">₹50</span>
-                <span className="text-muted-foreground ml-2">per resume</span>
+              {/* Feature 3 */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  ATS-Friendly Formats
+                </h3>
+                <p className="text-gray-600">
+                  Ensure your resume gets past applicant tracking systems with
+                  our optimized formats.
+                </p>
               </div>
-              
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center justify-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span>Professional ATS-friendly template</span>
-                </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span>Edit and preview before download</span>
-                </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span>Instant PDF download</span>
-                </div>
-                <div className="flex items-center justify-center space-x-3">
-                  <span className="text-emerald-500 text-lg">✓</span>
-                  <span>No hidden charges or subscriptions</span>
-                </div>
-              </div>
-
-              <Button 
-                size="lg" 
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 text-lg"
-                onClick={handleGetStarted}
-              >
-                Create Resume Now - ₹50
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              
-              <p className="text-sm text-muted-foreground mt-4">
-                <strong>No Refund Policy:</strong> All sales are final. Please review the sample before purchasing.
-              </p>
             </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 px-4" id="faq">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="border border-border">
-                <div 
-                  className="p-6 cursor-pointer flex items-center justify-between hover:bg-muted/50 transition-colors"
-                  onClick={() => toggleFaq(index)}
-                >
-                  <h3 className="text-lg font-semibold">{faq.question}</h3>
-                  {openFaq === index ? (
-                    <Minus className="h-5 w-5 text-muted-foreground" />
-                  ) : (
-                    <Plus className="h-5 w-5 text-muted-foreground" />
-                  )}
-                </div>
-                {openFaq === index && (
-                  <div className="px-6 pb-6">
-                    <p className="text-muted-foreground">{faq.answer}</p>
-                  </div>
-                )}
-              </Card>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* How It Works Section */}
+        <section id="how-it-works" className="py-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              How It Works
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Step 1 */}
+              <div className="flex items-start">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Choose a Template
+                  </h3>
+                  <p className="text-gray-600">
+                    Select a resume template that best fits your experience and
+                    industry.
+                  </p>
+                </div>
+              </div>
+              {/* Step 2 */}
+              <div className="flex items-start">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Customize Your Content
+                  </h3>
+                  <p className="text-gray-600">
+                    Fill in your personal information, work experience, and
+                    skills.
+                  </p>
+                </div>
+              </div>
+              {/* Step 3 */}
+              <div className="flex items-start">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Download Your Resume
+                  </h3>
+                  <p className="text-gray-600">
+                    Download your resume in various formats, ready to be sent to
+                    employers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              Testimonials
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Testimonial 1 */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <p className="text-gray-600 italic mb-4">
+                  "I was struggling to create a professional resume, but this
+                  tool made it so easy! I landed my dream job within weeks."
+                </p>
+                <p className="text-gray-900 font-semibold">- Jane Smith</p>
+              </div>
+              {/* Testimonial 2 */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <p className="text-gray-600 italic mb-4">
+                  "The ATS-friendly templates were a game-changer for me. I
+                  highly recommend this resume builder to anyone looking for a
+                  job."
+                </p>
+                <p className="text-gray-900 font-semibold">- John Doe</p>
+              </div>
+              {/* Testimonial 3 */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <p className="text-gray-600 italic mb-4">
+                  "I love how customizable the templates are. I was able to
+                  create a resume that truly reflects my skills and experience."
+                </p>
+                <p className="text-gray-900 font-semibold">- Emily Brown</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="py-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              Pricing
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Basic Plan */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Basic
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Free access to a limited number of templates and features.
+                </p>
+                <p className="text-gray-900 font-semibold">Free</p>
+              </div>
+              {/* Premium Plan */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Premium
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Unlimited access to all templates and features.
+                </p>
+                <p className="text-gray-900 font-semibold">$9.99/month</p>
+              </div>
+              {/* Enterprise Plan */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Enterprise
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Customized solutions for businesses and organizations.
+                </p>
+                <p className="text-gray-900 font-semibold">Contact Us</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              Frequently Asked Questions
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Question 1 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  How do I choose the right template?
+                </h3>
+                <p className="text-gray-600">
+                  Consider your industry, experience level, and personal style
+                  when selecting a template.
+                </p>
+              </div>
+              {/* Question 2 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Is my data secure?
+                </h3>
+                <p className="text-gray-600">
+                  Yes, we use industry-standard security measures to protect
+                  your data.
+                </p>
+              </div>
+              {/* Question 3 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Can I cancel my subscription at any time?
+                </h3>
+                <p className="text-gray-600">
+                  Yes, you can cancel your subscription at any time.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 py-12 px-4">
-        <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <img 
-              src="/lovable-uploads/57519401-8dfd-48c4-abf1-26304a6c050d.png" 
-              alt="ResumeBuilder Logo" 
-              className="h-8 w-8"
-            />
-            <span className="font-bold text-xl">ResumeBuilder</span>
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center mb-4">
+                <img 
+                  src="/lovable-uploads/57519401-8dfd-48c4-abf1-26304a6c050d.png" 
+                  alt="BuildMyCV Logo" 
+                  className="w-8 h-8 mr-2"
+                />
+                <span className="text-xl font-bold">BuildMyCV</span>
+              </div>
+              <p className="text-gray-400">
+                Build professional resumes that get you hired.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Product</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white">Templates</a></li>
+                <li><a href="#" className="hover:text-white">Resume Builder</a></li>
+                <li><a href="#" className="hover:text-white">Cover Letters</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Support</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white">Help Center</a></li>
+                <li><a href="#" className="hover:text-white">Contact Us</a></li>
+                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4">Company</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white">About</a></li>
+                <li><a href="#" className="hover:text-white">Careers</a></li>
+                <li><a href="#" className="hover:text-white">Blog</a></li>
+              </ul>
+            </div>
           </div>
-          <p className="text-muted-foreground mb-2">
-            Build professional resumes in minutes, not hours.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            ₹50 per resume • No subscriptions • No refunds • Instant download
-          </p>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 BuildMyCV. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
