@@ -1,8 +1,11 @@
+
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Check, X } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,18 +19,12 @@ const Index = () => {
               <span className="text-2xl font-bold text-gray-900">BuildMyCV</span>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900">How It Works</a>
-              <a href="#testimonials" className="text-gray-600 hover:text-gray-900">Testimonials</a>
               <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
               <a href="#faq" className="text-gray-600 hover:text-gray-900">FAQ</a>
             </nav>
             <div className="flex space-x-4">
               <Button variant="ghost" asChild>
                 <a href="/auth">Login</a>
-              </Button>
-              <Button asChild>
-                <a href="/auth">Get Started</a>
               </Button>
             </div>
           </div>
@@ -36,233 +33,211 @@ const Index = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="py-20 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Build Your Perfect Resume in <span className="text-blue-600">Minutes</span>
+        <section className="py-20 px-4 text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-6">
+              <span className="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full mb-6">
+                ✨ Launch Special — 50% Off ✨
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+              Stop wasting hours
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Create professional, ATS-friendly resumes that get you noticed. Choose from expertly designed templates and land your dream job.
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              managing <span className="text-blue-600">CV templates</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+              Build professional, ATS-friendly resumes in minutes. Focus on landing your dream job, 
+              not formatting documents. 1-minute setup.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-6" asChild>
-                <a href="/auth">Start Building Now</a>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
-                View Templates
-              </Button>
-            </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section id="features" className="py-16 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              Key Features
+        {/* Comparison Section */}
+        <section className="py-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+              Why pay for complex tools?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Professionally Designed Templates
-                </h3>
-                <p className="text-gray-600">
-                  Choose from a wide variety of modern and creative resume
-                  templates.
-                </p>
-              </div>
-              {/* Feature 2 */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Easy-to-Use Resume Builder
-                </h3>
-                <p className="text-gray-600">
-                  Our intuitive drag-and-drop interface makes resume creation a
-                  breeze.
-                </p>
-              </div>
-              {/* Feature 3 */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  ATS-Friendly Formats
-                </h3>
-                <p className="text-gray-600">
-                  Ensure your resume gets past applicant tracking systems with
-                  our optimized formats.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              {/* Traditional CV Builders */}
+              <Card className="bg-red-50 border-red-200">
+                <CardHeader>
+                  <CardTitle className="text-red-600 text-2xl">Traditional CV Builders</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <X className="w-5 h-5 text-red-500" />
+                    <span className="text-gray-700">Pay monthly fees (up to $20)</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <X className="w-5 h-5 text-red-500" />
+                    <span className="text-gray-700">Or manually format templates</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <X className="w-5 h-5 text-red-500" />
+                    <span className="text-gray-700">Waste hours in design software</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <X className="w-5 h-5 text-red-500" />
+                    <span className="text-gray-700">Can't update details once exported</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <X className="w-5 h-5 text-red-500" />
+                    <span className="text-gray-700">Limited template customization</span>
+                  </div>
+                </CardContent>
+              </Card>
 
-        {/* How It Works Section */}
-        <section id="how-it-works" className="py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              How It Works
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Step 1 */}
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
-                  1
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Choose a Template
-                  </h3>
-                  <p className="text-gray-600">
-                    Select a resume template that best fits your experience and
-                    industry.
-                  </p>
-                </div>
-              </div>
-              {/* Step 2 */}
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Customize Your Content
-                  </h3>
-                  <p className="text-gray-600">
-                    Fill in your personal information, work experience, and
-                    skills.
-                  </p>
-                </div>
-              </div>
-              {/* Step 3 */}
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Download Your Resume
-                  </h3>
-                  <p className="text-gray-600">
-                    Download your resume in various formats, ready to be sent to
-                    employers.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section id="testimonials" className="py-16 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              Testimonials
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Testimonial 1 */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <p className="text-gray-600 italic mb-4">
-                  "I was struggling to create a professional resume, but this
-                  tool made it so easy! I landed my dream job within weeks."
-                </p>
-                <p className="text-gray-900 font-semibold">- Jane Smith</p>
-              </div>
-              {/* Testimonial 2 */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <p className="text-gray-600 italic mb-4">
-                  "The ATS-friendly templates were a game-changer for me. I
-                  highly recommend this resume builder to anyone looking for a
-                  job."
-                </p>
-                <p className="text-gray-900 font-semibold">- John Doe</p>
-              </div>
-              {/* Testimonial 3 */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <p className="text-gray-600 italic mb-4">
-                  "I love how customizable the templates are. I was able to
-                  create a resume that truly reflects my skills and experience."
-                </p>
-                <p className="text-gray-900 font-semibold">- Emily Brown</p>
-              </div>
+              {/* BuildMyCV */}
+              <Card className="bg-green-50 border-green-200">
+                <CardHeader>
+                  <CardTitle className="text-green-600 text-2xl">BuildMyCV</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">One-time payment for unlimited resumes</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Professional templates ready to use</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">No more design headaches</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Editable resumes to stay current</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">ATS-friendly formats included</span>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              Pricing
+        <section id="pricing" className="py-16 px-4 bg-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-16">
+              Choose Your Plan
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {/* Basic Plan */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Basic
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Free access to a limited number of templates and features.
-                </p>
-                <p className="text-gray-900 font-semibold">Free</p>
-              </div>
-              {/* Premium Plan */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Premium
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Unlimited access to all templates and features.
-                </p>
-                <p className="text-gray-900 font-semibold">$9.99/month</p>
-              </div>
-              {/* Enterprise Plan */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Enterprise
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Customized solutions for businesses and organizations.
-                </p>
-                <p className="text-gray-900 font-semibold">Contact Us</p>
-              </div>
+              <Card className="relative">
+                <CardHeader className="text-center">
+                  <div className="text-gray-500 line-through text-lg mb-2">$19</div>
+                  <div className="text-5xl font-bold text-gray-900">$9</div>
+                  <div className="text-gray-600">USD</div>
+                  <CardTitle className="text-xl mt-4">Starter</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span>5 Professional templates</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span>Unlimited resume downloads</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span>ATS-friendly formats</span>
+                  </div>
+                  <Button className="w-full mt-6 bg-green-600 hover:bg-green-700" asChild>
+                    <a href="/auth">Get Started →</a>
+                  </Button>
+                  <p className="text-sm text-gray-600 text-center">
+                    One-time payment, then <span className="underline">it's yours forever</span>
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Pro Plan */}
+              <Card className="relative border-2 border-green-500">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-green-500 text-white px-4 py-1 text-sm font-medium rounded-full">
+                    MOST POPULAR
+                  </span>
+                </div>
+                <CardHeader className="text-center">
+                  <div className="text-gray-500 line-through text-lg mb-2">$39</div>
+                  <div className="text-5xl font-bold text-gray-900">$19</div>
+                  <div className="text-gray-600">USD</div>
+                  <CardTitle className="text-xl mt-4">Professional</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span>All Starter features</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="font-medium text-green-600">Unlimited</span>
+                    <span>premium templates</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span>Cover letter templates</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span>Priority support</span>
+                  </div>
+                  <Button className="w-full mt-6 bg-green-600 hover:bg-green-700" asChild>
+                    <a href="/auth">Get Professional →</a>
+                  </Button>
+                  <p className="text-sm text-gray-600 text-center">
+                    One-time payment, then <span className="underline">it's yours forever</span>
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="py-16 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="faq" className="py-16 px-4 bg-gray-50">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
               Frequently Asked Questions
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Question 1 */}
+            <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   How do I choose the right template?
                 </h3>
                 <p className="text-gray-600">
-                  Consider your industry, experience level, and personal style
-                  when selecting a template.
+                  Consider your industry, experience level, and personal style when selecting a template. All our templates are ATS-friendly.
                 </p>
               </div>
-              {/* Question 2 */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   Is my data secure?
                 </h3>
                 <p className="text-gray-600">
-                  Yes, we use industry-standard security measures to protect
-                  your data.
+                  Yes, we use industry-standard security measures to protect your data. Your information is encrypted and stored securely.
                 </p>
               </div>
-              {/* Question 3 */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Can I cancel my subscription at any time?
+                  Can I update my resume after downloading?
                 </h3>
                 <p className="text-gray-600">
-                  Yes, you can cancel your subscription at any time.
+                  Absolutely! You can edit and re-download your resume as many times as you need, forever.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  What formats can I download?
+                </h3>
+                <p className="text-gray-600">
+                  You can download your resume in PDF, Word, and plain text formats for maximum compatibility.
                 </p>
               </div>
             </div>
