@@ -128,37 +128,36 @@ const Index = () => {
               Choose Your Plan
             </h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-              {/* Basic Plan */}
+              {/* Single Download Plan */}
               <Card className="relative">
                 <CardHeader className="text-center">
-                  <div className="text-gray-500 line-through text-lg mb-2">$19</div>
-                  <div className="text-5xl font-bold text-gray-900">$9</div>
-                  <div className="text-gray-600">USD</div>
-                  <CardTitle className="text-xl mt-4">Starter</CardTitle>
+                  <div className="text-5xl font-bold text-gray-900">₹50</div>
+                  <div className="text-gray-600">INR</div>
+                  <CardTitle className="text-xl mt-4">Single Download</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Check className="w-5 h-5 text-green-500" />
-                    <span>5 Professional templates</span>
+                    <span>1 Template access</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Check className="w-5 h-5 text-green-500" />
-                    <span>Unlimited resume downloads</span>
+                    <span>1 Resume download</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Check className="w-5 h-5 text-green-500" />
-                    <span>ATS-friendly formats</span>
+                    <span>ATS-friendly format</span>
                   </div>
                   <Button className="w-full mt-6 bg-green-600 hover:bg-green-700" asChild>
                     <a href="/auth">Get Started →</a>
                   </Button>
                   <p className="text-sm text-gray-600 text-center">
-                    One-time payment, then <span className="underline">it's yours forever</span>
+                    <span className="text-red-600 font-medium">No refunds</span> - One-time payment
                   </p>
                 </CardContent>
               </Card>
 
-              {/* Pro Plan */}
+              {/* Unlimited Plan */}
               <Card className="relative border-2 border-green-500">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                   <span className="bg-green-500 text-white px-4 py-1 text-sm font-medium rounded-full">
@@ -166,34 +165,32 @@ const Index = () => {
                   </span>
                 </div>
                 <CardHeader className="text-center">
-                  <div className="text-gray-500 line-through text-lg mb-2">$39</div>
-                  <div className="text-5xl font-bold text-gray-900">$19</div>
-                  <div className="text-gray-600">USD</div>
-                  <CardTitle className="text-xl mt-4">Professional</CardTitle>
+                  <div className="text-5xl font-bold text-gray-900">₹200</div>
+                  <div className="text-gray-600">INR</div>
+                  <CardTitle className="text-xl mt-4">Unlimited Access</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <Check className="w-5 h-5 text-green-500" />
-                    <span>All Starter features</span>
+                    <span>1 Premium template</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Check className="w-5 h-5 text-green-500" />
-                    <span className="font-medium text-green-600">Unlimited</span>
-                    <span>premium templates</span>
+                    <span className="font-medium text-green-600">Unlimited downloads</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Check className="w-5 h-5 text-green-500" />
-                    <span>Cover letter templates</span>
+                    <span>ATS-friendly formats</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Check className="w-5 h-5 text-green-500" />
-                    <span>Priority support</span>
+                    <span>Update anytime</span>
                   </div>
                   <Button className="w-full mt-6 bg-green-600 hover:bg-green-700" asChild>
-                    <a href="/auth">Get Professional →</a>
+                    <a href="/auth">Get Unlimited →</a>
                   </Button>
                   <p className="text-sm text-gray-600 text-center">
-                    One-time payment, then <span className="underline">it's yours forever</span>
+                    <span className="text-red-600 font-medium">No refunds</span> - One-time payment
                   </p>
                 </CardContent>
               </Card>
@@ -229,7 +226,7 @@ const Index = () => {
                   Can I update my resume after downloading?
                 </h3>
                 <p className="text-gray-600">
-                  Absolutely! You can edit and re-download your resume as many times as you need, forever.
+                  With the Unlimited plan, you can edit and re-download your resume as many times as you need.
                 </p>
               </div>
               <div>
@@ -248,7 +245,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             <div>
               <div className="flex items-center mb-4">
                 <img 
@@ -263,27 +260,13 @@ const Index = () => {
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Templates</a></li>
-                <li><a href="#" className="hover:text-white">Resume Builder</a></li>
-                <li><a href="#" className="hover:text-white">Cover Letters</a></li>
-              </ul>
-            </div>
-            <div>
               <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">About</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="#" className="hover:text-white">Blog</a></li>
+                <li>
+                  <a href="https://twitter.com/praveenthotakur" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                    Follow us on X @praveenthotakur
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
