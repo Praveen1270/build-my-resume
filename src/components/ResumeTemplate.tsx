@@ -71,7 +71,7 @@ const ResumeTemplate: React.FC<ResumeTemplateProps> = ({ data, showDownloadButto
       allowTaint: true,
     });
 
-    const imgData = canvas.getDataURL('image/png');
+    const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF('p', 'mm', 'a4');
     const imgWidth = 210;
     const pageHeight = 295;
