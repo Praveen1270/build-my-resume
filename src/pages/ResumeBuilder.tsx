@@ -1,14 +1,13 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, Download, Eye, Plus, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import ResumePreview from '@/components/ResumePreview';
 
 interface PersonalInfo {
   fullName: string;
@@ -513,110 +512,11 @@ const ResumeBuilder = () => {
               </Button>
               <h1 className="text-xl font-semibold">Resume Preview</h1>
             </div>
-            <Button>
-              <Download className="w-4 h-4 mr-2" />
-              Download PDF
-            </Button>
           </div>
         </div>
         
         <div className="max-w-4xl mx-auto p-6">
-          <div className="bg-white shadow-lg rounded-lg p-8 min-h-[800px]">
-            {/* Resume Template Preview */}
-            <div className="space-y-6">
-              {/* Header */}
-              <div className="text-center border-b pb-6">
-                <h1 className="text-3xl font-bold text-gray-900">{resumeData.personalInfo.fullName || 'Your Name'}</h1>
-                <div className="mt-2 text-gray-600 space-y-1">
-                  <p>{resumeData.personalInfo.email}</p>
-                  <p>{resumeData.personalInfo.phone}</p>
-                  {resumeData.personalInfo.address && <p>{resumeData.personalInfo.address}</p>}
-                  {resumeData.personalInfo.linkedin && <p>{resumeData.personalInfo.linkedin}</p>}
-                  {resumeData.personalInfo.website && <p>{resumeData.personalInfo.website}</p>}
-                </div>
-              </div>
-
-              {/* Objective */}
-              {resumeData.objective && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">OBJECTIVE</h2>
-                  <p className="text-gray-700">{resumeData.objective}</p>
-                </div>
-              )}
-
-              {/* Experience */}
-              {resumeData.experiences.length > 0 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">EXPERIENCE</h2>
-                  <div className="space-y-4">
-                    {resumeData.experiences.map((exp) => (
-                      <div key={exp.id}>
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <h3 className="font-semibold text-gray-900">{exp.position}</h3>
-                            <p className="text-gray-700">{exp.company}</p>
-                          </div>
-                          <div className="text-gray-600 text-sm">
-                            {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
-                          </div>
-                        </div>
-                        {exp.description && (
-                          <p className="text-gray-700 mt-2">{exp.description}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Education */}
-              {resumeData.education.length > 0 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">EDUCATION</h2>
-                  <div className="space-y-3">
-                    {resumeData.education.map((edu) => (
-                      <div key={edu.id} className="flex justify-between items-start">
-                        <div>
-                          <h3 className="font-semibold text-gray-900">{edu.degree} {edu.field && `in ${edu.field}`}</h3>
-                          <p className="text-gray-700">{edu.school}</p>
-                          {edu.gpa && <p className="text-gray-600">GPA: {edu.gpa}</p>}
-                        </div>
-                        <div className="text-gray-600 text-sm">
-                          {edu.startDate} - {edu.endDate}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Skills */}
-              {resumeData.skills.length > 0 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">SKILLS</h2>
-                  <div className="flex flex-wrap gap-2">
-                    {resumeData.skills.filter(skill => skill.trim()).map((skill, index) => (
-                      <span key={index} className="bg-gray-100 px-3 py-1 rounded-full text-gray-700">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Languages */}
-              {resumeData.languages.length > 0 && (
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">LANGUAGES</h2>
-                  <div className="space-y-1">
-                    {resumeData.languages.filter(lang => lang.trim()).map((language, index) => (
-                      <p key={index} className="text-gray-700">{language}</p>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
+          <ResumePreview resumeData={resumeData} />
         </div>
       </div>
     );
